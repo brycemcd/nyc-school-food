@@ -75,31 +75,47 @@ def create_favorite_color_attributes(favorite_color):
     return {"favoriteColor": favorite_color}
 
 
-def breakfast_for_date():
-    """Retrieve menu"""
-    food = menu.BREAKFAST
-    # FIXME: this is in UTC!
-    today = str(dt.date.today())
-    day_str = dt.date.strftime(dt.date.today(), "%A")
-    print(day_str)
+def _food_for_date(meal, str_fx, date=None):
+    """
+    Returns the food being served for the specified meal on the specified date
+    :param meal: A hash of date: food items (i.e. food.BREAKFAST)
+    :param str_fx: A function that takes the result as an argument and returns a
+        string for Echo to say
+    :param date: string in Y-m-d format indicating date. Defaults to today()
+    :return: string which will be Echo's response
+    """
+
+    if not date:
+        # FIXME: this is in UTC!
+        date = str(dt.date.today())
+
+    date = dt.datetime.strptime(date, "%Y-%m-%d").date()
+    day_str = date.strftime("%A")
+
+    date = str(date)
     if day_str in ["Saturday", "Sunday"]:
         return "It is %s. No food is being served at school" % day_str
     else:
-        return "On today's breakfast menu is %s. There will also be %s available." % (
-        food[today][0], food[today][1])
+        return str_fx(meal[date])
 
 
-def lunch_for_date():
+def breakfast_for_date(date=None):
+    """Retrieve menu
+    :param :date string in Y-m-d format representing date i.e. 2018-12-12
+    """
+
+    fx = lambda res: """
+        On today's breakfast menu is %s. There will also be %s available.
+    """ % (res[0], res[1])
+
+    return _food_for_date(menu.BREAKFAST, fx, date)
+
+
+def lunch_for_date(date=None):
     """Retrieve menu"""
-    food = menu.LUNCH
-    # FIXME: this is in UTC!
-    today = str(dt.date.today())
-    day_str = dt.date.strftime(dt.date.today(), "%A")
-    print(day_str)
-    if day_str in ["Saturday", "Sunday"]:
-        return "It is %s. No food is being served at school" % day_str
-    else:
-        return "On today's lunch menu is %s." % food[today]
+    fx = lambda res: "On today's lunch menu is %s." % res
+
+    return _food_for_date(menu.LUNCH, fx, date)
 
 
 def get_breakfast(intent, session):
@@ -267,3 +283,5 @@ def lambda_handler(event, context):
         return on_intent(event['request'], event['session'])
     elif event['request']['type'] == "SessionEndedRequest":
         return on_session_ended(event['request'], event['session'])
+
+if __name__ == '__main__':
