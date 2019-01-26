@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "sessionAttributes": {},
+  "response": {
+    "outputSpeech": {
+      "type": "PlainText",
+      "text": "Please say what is for the school meal"
+    },
+    "card": {
+      "type": "Simple",
+      "title": "NYC School Food- Welcome",
+      "content": "NYC School Food - Please say what is for the school meal"
+    },
+    "reprompt": {
+      "outputSpeech": {
+        "type": "PlainText",
+        "text": "reprompt welcome"
+      }
+    },
+    "shouldEndSession": false
+  }
+}

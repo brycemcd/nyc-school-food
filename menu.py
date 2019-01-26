@@ -2,6 +2,8 @@
 This is a place to stuff breakfast and lunch data
 """
 
+NO_SCHOOL_STRING = "No School"
+
 BREAKFAST = {
     "2018-12-17": ["Apple Muffin and cheese stick", "Fresh Fruit"],
     "2018-12-18": ["Turkey Sausage and Egg Sandwich", "Yogurt"],
@@ -10,23 +12,23 @@ BREAKFAST = {
     "2018-12-21": ["Cheese Omelet and English muffin", "Oatmeal"],
     "2019-01-02": ["Pancakes and Ham", "Oatmeal"],
     "2019-01-03": ["Bagel Sticks", "Yogurt"],
-    "2019-01-04": ["Tasty Waffles and sausage patty"],
-    "2019-01-07": ["Apple Muffin and cheese stick"],
+    "2019-01-04": ["Tasty Waffles and sausage patty", ""],
+    "2019-01-07": ["Apple Muffin and cheese stick", ""],
     "2019-01-08": ["Turkey Sausage and Egg Sandwich", "Yogurt"],
     "2019-01-09": ["Pancakes and Ham", "Oatmeal"],
     "2019-01-10": ["Bagel Sticks", "Yogurt"],
     "2019-01-11": ["Cheese Omelet and English muffin", "Oatmeal"],
-    "2019-01-14": ["Honey Corn Muffin and cheese stick"],
+    "2019-01-14": ["Honey Corn Muffin", "cheese stick"],
     "2019-01-15": ["Ham Egg and Cheese Bagel Sandwich", "Yogurt"],
-    "2019-01-16": ["Tasty Waffles and sausage patty"],
+    "2019-01-16": ["Tasty Waffles and sausage patty", "Oatmeal"],
     "2019-01-17": ["Bagel Sticks", "Yogurt"],
     "2019-01-18": ["Cheese Omelet and English muffin", "Oatmeal"],
-    "2019-01-21": ["No School"],
+    "2019-01-21": [NO_SCHOOL_STRING],
     "2019-01-22": ["Turkey Sausage and Egg Sandwich", "Yogurt"],
     "2019-01-23": ["Pancakes and Ham", "Oatmeal"],
     "2019-01-24": ["Bagel Sticks", "Yogurt"],
-    "2019-01-25": ["Tasty Waffles and sausage patty"],
-    "2019-01-28": ["Apple Muffin and cheese stick"],
+    "2019-01-25": ["Tasty Waffles", "sausage patty"],
+    "2019-01-28": ["Apple Muffin", "cheese stick"],
     "2019-01-29": ["Turkey Sausage and Egg Sandwich", "Yogurt"],
     "2019-01-30": ["Pancakes and Ham", "Oatmeal"],
     "2019-01-31": ["Bagel Sticks", "Yogurt"],
