@@ -1,5 +1,5 @@
 """
-Handles requests from voice
+Handles requests from voice and builds response object
 """
 from response import WelcomeResponse, GoodbyeResponse, IntentResponse
 

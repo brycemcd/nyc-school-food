@@ -1,5 +1,5 @@
 from response import Response, WelcomeResponse, GoodbyeResponse, IntentResponse
-from unittest import TestCase, mock
+from unittest import mock
 
 
 def test_response_return_resp():
@@ -64,6 +64,7 @@ def test_lunch_intent_response():
     res = lunch_response.say()
 
     assert "No food is being served" in res
+    assert lunch_response.should_end is True
 
 
 def test_bkfast_for_date():
@@ -84,3 +85,4 @@ def test_bkfast_for_date():
     res = bkfst_response.say()
 
     assert "No food is being served" in res
+    assert bkfst_response.should_end is True

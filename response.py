@@ -86,7 +86,7 @@ class IntentResponse(Response):
     def __init__(self, date=None):
         if not date:
             # FIXME: this is in UTC!
-            self.date = str(dt.date.today())
+            self.date = dt.date.today()
         else:
             self.date = dt.datetime.strptime(date, "%Y-%m-%d").date()
 
