@@ -8,7 +8,8 @@ from __future__ import print_function
 from request import Request, ResponseBuilder
 
 
-def skill_router(event):
+# NOTE: context is a required param for Lambda though it's not used in this app
+def skill_router(event, context=None):
     """Accepts the event being sent from the skill, gives it to the router and
        sends the response back to the skill
     """

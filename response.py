@@ -21,23 +21,27 @@ class Response:
     def default_reprompt_text(self):
         return "Reprompting"
 
+    def card(self):
+        """Used on device to supplement voice response"""
+        return {}
+
     def return_resp(self):
         """Stuff to return via voice and the cards"""
 
         return self.build_response(
-                       self.build_speechlet_response("NYC School Food",
-                                                     self.say(),
+                       self.build_speechlet_response(self.say(),
                                                      self.default_reprompt_text,
-                                                     self.should_end))
+                                                     self.should_end,
+                                                     self.card()))
 
     @staticmethod
-    def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    def build_speechlet_response(output, reprompt_text, should_end_session, card):
         return {
             'outputSpeech': {
                 'type': 'PlainText',
                 'text': output
             },
-            'card': {},
+            'card': card,
             'reprompt': {
                 'outputSpeech': {
                     'type': 'PlainText',

@@ -9,4 +9,4 @@ find . -type d -name __pycache__ \
      -o \( -type f -name '*.py[co]' \) -print0 \
     | xargs -0 sudo rm -rf
 
-zip -r nyc_school_food.zip menu.py python_function.py
+zip -r nyc_school_food.zip menu.py *.py

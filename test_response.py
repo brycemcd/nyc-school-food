@@ -18,10 +18,15 @@ def test_response_return_resp():
     assert ret_resp['version'] == '1.0'
     # we don't use session data in this app
     assert ret_resp['sessionAttributes'] == {}
+    # By default, no card is created
+    assert ret_resp['response']['card'] == {}
 
 
 def test_build_speechlet_response():
-    resp = Response.build_speechlet_response("foo", "something Alexa says", "reprompt", True)
+    resp = Response.build_speechlet_response("something Alexa says",
+                                             "reprompt",
+                                             True,
+                                             {})
 
     assert type(resp["card"]) == dict
     assert type(resp["shouldEndSession"]) == bool
