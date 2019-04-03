@@ -41,7 +41,7 @@ class Response:
                 'type': 'PlainText',
                 'text': output
             },
-            'card': card,
+            # 'card': card,
             'reprompt': {
                 'outputSpeech': {
                     'type': 'PlainText',
