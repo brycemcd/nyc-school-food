@@ -69,7 +69,7 @@ class WelcomeResponse(Response):
 
     def say(self):
         """What to say when entering the app"""
-        return """Please say what is for the school meal"""
+        return """Good morning Penny! Daddy loves you. Please say what is for the school meal"""
 
 
 class GoodbyeResponse(Response):

@@ -19,7 +19,7 @@ def test_response_return_resp():
     # we don't use session data in this app
     assert ret_resp['sessionAttributes'] == {}
     # By default, no card is created
-    assert ret_resp['response']['card'] == {}
+    assert ret_resp['response'].get('card') is None
 
 
 def test_build_speechlet_response():
@@ -28,7 +28,7 @@ def test_build_speechlet_response():
                                              True,
                                              {})
 
-    assert type(resp["card"]) == dict
+    assert resp.get("card") is None
     assert type(resp["shouldEndSession"]) == bool
 
     acceptable_root_keys = ['card', 'outputSpeech', 'reprompt', 'shouldEndSession']

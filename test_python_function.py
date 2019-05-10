@@ -37,7 +37,7 @@ def has_reqd_keys(resp):
 
 def has_reqd_speechlet_keys(resp):
     """tests that response dict has all the keys needed"""
-    reqd_keys = {'outputSpeech', 'card', 'reprompt', 'shouldEndSession'}
+    reqd_keys = {'outputSpeech', 'reprompt', 'shouldEndSession'}
     resp_keys = set(resp['response'].keys())
 
     keys = (reqd_keys.difference(resp_keys))
